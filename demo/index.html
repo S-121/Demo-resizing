@@ -1,114 +1,78 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://cdn.cocreate.app/favicon.ico" type="image/ico" sizes="16x16">
+    <title>Resize</title>
 
-    .comic {
-      display: flex;
-      flex-wrap: wrap;
-      font-family: 'Comic Sans', cursive;
-      padding: 1vmin;
-    }
+    <link rel="stylesheet" href="../src/style.css" type="text/css" />
 
-    .panel {
-      background-color: #fff;
-      border: solid 5px #55aa55;
-      box-shadow: 0 6px 6px -6px #55aa55;
-      display: inline-block;
-      flex: 1 1;
-      height: 200px;
-      margin: 1vmin;
-      overflow: hidden;
-      position: relative;
-    }
+    <style>
+        body {
+            height: 100vh;
+            margin: 0px;
+        }
 
-    .text {
-      background-color: #fff;
-      border: solid 2px #55aa55;
-      margin: 0;
-      padding: 3px 10px;
-    }
+        /* .resize1 {
+            top: 50px;
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            padding: 0.5em;
+            position: absolute;
+            background: #dddddd;
+        } */
 
-    .top-left {
-      left: -6px;
-      position: absolute;
-      top: -2px;
-      transform: skew(-15deg);
-    }
-
-    .bottom-right {
-      bottom: -2px;
-      position: absolute;
-      right: -6px;
-      transform: skew(-15deg);
-    }
-
-    .speech {
-      background-color: #fff;
-      border: solid 2px #55aa55;
-      border-radius: 12px;
-      display: inline-block;
-      margin: .5em;
-      padding: .5em 1em;
-      position: relative;
-    }
-
-    .speech:before {
-      border: solid 12px transparent;
-      border-left: solid 12px #55aa55;
-      border-top: solid 12px #55aa55;
-      bottom: -24px;
-      content: "";
-      height: 0;
-      left: 24px;
-      position: absolute;
-      transform: skew(-15deg);
-      width: 0;
-    }
-
-    .speech:after {
-      border: solid 10px transparent;
-      border-left: solid 10px #fff;
-      border-top: solid 10px #fff;
-      bottom: -19px;
-      content: "";
-      height: 0;
-      left: 27px;
-      position: absolute;
-      transform: skew(-15deg);
-      width: 0;
-    }
-
-    .panel:nth-child(1) {
-      flex-basis: 200px;
-    }
-
-    .panel:nth-child(2) {
-      flex-basis: 200px;
-    }
-
-    /* background colours */
-
-    .panel:nth-child(4n+1) {
-      background-image: radial-gradient(circle, white, white);
-    }
-
-    .panel:nth-child(4n+2) {
-      background-image: radial-gradient(circle, white, white);
-    }
-  </style>
+        .resize2 {
+            top: 150px;
+            left: 150px;
+            width: 50px;
+            height: 50px;
+            padding: 0.5em;
+            position: relative;
+            background: #dddddd;
+        }
+    </style>
 </head>
 
 <body>
-  <article class="comic">
-    <div class="panel"></div>
-    <div class="panel"></div>
-  </article>
+
+    <div class="resize resize1" style="
+    top: 50px;
+    left: 50px;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    max-width: 500px;
+    max-height: 500px;
+    background: #dddddd;">
+        <div data-resize_handle="left"></div>
+        <div data-resize_handle="right"></div>
+        <div data-resize_handle="top"></div>
+        <div data-resize_handle="bottom"></div>
+    </div>
+
+    <!-- <div class="newresize resize2">
+        <div class="resizeleft"></div>
+        <div class="resizeright"></div>
+        <div class="resizetop"></div>
+        <div class="resizebottom"></div>
+    </div> -->
+
+    <script src="../dist/CoCreate-resize.js"></script>
+
+    <script>
+        window.onresize = function (event) {
+            var demo = document.querySelector('.resize1')
+            document.querySelector('.resize1').style.width = (window.innerWidth * 0.8) + "px";
+            document.querySelector('.resize1').style.left = (window.innerWidth * 0.1) + "px";
+            document.querySelector('.resize1').style.height = (window.innerHeight * 0.8) + "px";
+            document.querySelector('.resize1').style.top = (window.innerHeight * 0.1) + "px";
+        };
+    </script>
 </body>
 
 </html>
