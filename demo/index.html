@@ -15,62 +15,28 @@
             height: 100vh;
             margin: 0px;
         }
-
-        /* .resize1 {
-            top: 50px;
-            left: 50px;
-            width: 50px;
-            height: 50px;
-            padding: 0.5em;
-            position: absolute;
-            background: #dddddd;
-        } */
-
-        .resize2 {
-            top: 150px;
-            left: 150px;
-            width: 50px;
-            height: 50px;
-            padding: 0.5em;
-            position: relative;
-            background: #dddddd;
-        }
     </style>
 </head>
 
 <body>
 
-    <div class="resize resize1" style="
-    top: 50px;
-    left: 50px;
-    width: 500px;
-    height: 500px;
-    position: absolute;
-    max-width: 500px;
-    max-height: 500px;
-    background: #dddddd;">
+    <div class="resize resize1"
+        style="top: 50px; left: 50px; width: 500px; height: 500px; position: absolute; max-width: 500px; max-height: 500px; background: #dddddd;">
         <div data-resize_handle="left"></div>
         <div data-resize_handle="right"></div>
         <div data-resize_handle="top"></div>
         <div data-resize_handle="bottom"></div>
     </div>
 
-    <!-- <div class="newresize resize2">
-        <div class="resizeleft"></div>
-        <div class="resizeright"></div>
-        <div class="resizetop"></div>
-        <div class="resizebottom"></div>
-    </div> -->
-
     <script src="../dist/CoCreate-resize.js"></script>
 
     <script>
         window.onresize = function (event) {
             var demo = document.querySelector('.resize1')
-            document.querySelector('.resize1').style.width = (window.innerWidth * 0.8) + "px";
-            document.querySelector('.resize1').style.left = (window.innerWidth * 0.1) + "px";
-            document.querySelector('.resize1').style.height = (window.innerHeight * 0.8) + "px";
-            document.querySelector('.resize1').style.top = (window.innerHeight * 0.1) + "px";
+            demo.style.width = (window.innerWidth * 0.8) + "px";
+            demo.style.left = (window.innerWidth * 0.1) + "px";
+            demo.style.height = (window.innerHeight * 0.8) + "px";
+            demo.style.top = (window.innerHeight * 0.1) + "px";
         };
     </script>
 </body>
